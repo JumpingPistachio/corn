@@ -1,7 +1,7 @@
 use clap::Parser;
 
 #[derive(Parser, Debug)]
-#[command(author, version, about, long_about = None)]
+#[command(author = "JumpingPistachio", version, about = "A simple calculator built with rust.", long_about = None)]
 
 // Defines arguments for the command(--help, etc).
 struct Args {
