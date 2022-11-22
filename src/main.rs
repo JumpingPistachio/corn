@@ -9,8 +9,8 @@ struct Args {
     #[arg(short = 's', long = "start")]
     start_num: f64,
 
-    /// Operators a/Add, s/Subtact, m/Multiply, d/Divide
-    #[arg(short = 'o', long = "operator")]
+    /// Operators (a/Add, s/Subtact, m/Multiply, d/Divide, q/SquareRoot)
+    #[arg(short = 'o', long = "operator", default_value = "add")]
     operator: String,
 
     /// End Operand or 'End' number.
@@ -24,6 +24,7 @@ fn main() {
     // Makes the 'operator' string all lowercase for easier usage.
     let operator: String = args.operator.to_lowercase();
 
+    // Using if block instead of match case due to errors.
     if operator == "a" || operator == "add" {
         println!("{}", args.start_num + args.end_num);
     }else if operator == "s" || operator == "subtract" {
@@ -32,6 +33,8 @@ fn main() {
         println!("{}", args.start_num / args.end_num);
     }else if operator == "m" || operator == "multiply" {
         println!("{}", args.start_num - args.end_num);
+    }else if operator == "p" || operator == "percent"{
+        println!("{}", args.start_num % args.end_num);
     }else {
         println!("Not a valid argument.");
     }
