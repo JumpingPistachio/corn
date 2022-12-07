@@ -14,7 +14,7 @@ struct Args {
     operator: String,
 
     /// End Operand or 'End' number.
-    #[arg(short = 'e', long = "end")]
+    #[arg(short = 'e', long = "end", default_value_t = 0.0)]
     end_num: f64
 }
 
@@ -35,6 +35,8 @@ fn main() {
         println!("{}", args.start_num - args.end_num);
     }else if operator == "p" || operator == "percent"{
         println!("{}", args.start_num % args.end_num);
+    }else if operator == "q" || operator == "squareroot"{
+        println!("{}", args.start_num.sqrt());
     }else {
         println!("Not a valid argument.");
     }
